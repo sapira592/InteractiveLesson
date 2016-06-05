@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/sapira592/InteractiveLesson/issues"
   },
-  "homepage": "https://github.com/sapira592/InteractiveLesson#readme"
+  "homepage": "https://github.com/sapira592/InteractiveLesson#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.19"
+  }
 }
