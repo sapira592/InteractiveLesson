@@ -1,0 +1,39 @@
+/*
+
+
+app.get('/teacherLogin', function (req, res){
+	var urlPart = url.parse(req.url, true);
+    var query = urlPart.query;
+    var id = query.id;
+    var pass = query.pass;
+ 	var answer = 0; 
+ 	teacherAction.temp(id,pass);
+ 	//answer = teacherAction.login(id,pass);
+ /*	if(answer == 0)
+ 		res.send("invalid info");
+ 	else 
+ 		res.send("something");*/
+ 	//next();//middleware
+ });
+
+
+
+/*app.all('*', function(req,res) {
+	res.send('Global handler');
+});
+*/
+
+
+
+/******* imports all Schemas Moduls *******/
+var Activity = require('./schemas/activity.js');
+var Answer = require('./schemas/answer.js');
+var KeyWord = require('./schemas/keyWord.js');
+var Lesson = require('./schemas/lesson.js');
+var Question = require('./schemas/question.js');
+var Answer = require('./schemas/answer.js');
+var Teacher = require('./schemas/teacher.js');
+/*****************************************/
+
+
+*/

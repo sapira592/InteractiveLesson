@@ -1,4 +1,6 @@
 var express = require('express');
+var mongoose = require('mongoose');
+var db = require('./mongoConnection');
 var app = express();
 var port = process.env.PORT || 3000;
 
@@ -11,10 +13,18 @@ app.use(function(req, res, next){
 	next();
 });
 
+
+//=================== Controllers =======================
+
+var teacherAction = require('./controllers/teacherController.js');
+
+//=======================================================
+
+ app.get('/teacherLogin/:id/:pass', teacherAction.login);
+
  app.get('/', function (req, res) { 
      res.status(200).json({message:"InteractiveLesson App is running!"}); 
- }); 
-
+ }); // ------------> connect to login html
 
 app.listen(port);
 console.log("service is listening on port " + port);
