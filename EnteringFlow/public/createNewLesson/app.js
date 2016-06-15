@@ -19,6 +19,8 @@ validationApp.controller('mainController', ['$scope', '$http', function($scope, 
                 '&date=' +
                 encodeURIComponent($scope.user.date);
 
+                console.log("work");
+
             $http({
                 method: 'POST',
                 url: 'http://localhost:3000/createLesson',

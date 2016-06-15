@@ -11,12 +11,13 @@ exports.createLesson =function(req, res){
     }
     lesson.create(lessonObject, function(err,data){
         if(err){
+            console.log("error");
             res.json({success:false, message:err});
             return;
         }
         res.json({success:true, message:data});
+            return;
     });
-
 }
 
 // var lessonSchema = new schema({

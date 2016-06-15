@@ -17,7 +17,7 @@ validationApp.controller('mainController', ['$scope', '$http', function($scope, 
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:3000/createLesson',
+                url: 'http://localhost:3000/createKeyWord',
                 data: encodedString,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             })

@@ -10,7 +10,7 @@ angular.module('postExample', [])
                 
             $http({
                 method: 'GET',
-                url: 'http://localhost:3000/teacherLogin/'+this.inputData.username + '/' + this.inputData.password
+                url: 'http://localhost:3000/teacherLogin/'+ this.inputData.username + '/' + this.inputData.password
             })
             .success(function(data, status, headers, config) {
                 console.log(data);

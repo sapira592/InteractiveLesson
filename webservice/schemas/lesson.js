@@ -5,7 +5,7 @@ var lessonSchema = new schema({
     grade: {type: Number, min:0, max:100 },
     lessonTitle: {type: String,required: true},
     date: {type: Date},
-}, {collection: 'lessons - new'});
+}, {collection: 'lessons - new1'});
 
 //validation with DB
 var Lesson = mongoose.model('Lesson', lessonSchema);

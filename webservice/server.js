@@ -20,11 +20,13 @@ app.use(bodyParser.urlencoded({extended:false}));
 // var teacherAction = new tc(db.con);
 var teacherAction = require('./controllers/teacherController.js');
 var lessonAction = require('./controllers/lessonController.js');
+var keyWordAction = require('./controllers/keyWordController.js');
 
 //=======================================================
 
- app.get('/teacherLogin/:id/:pass', teacherAction.login);
+ app.get('/teacherLogin/:name/:pass', teacherAction.login);
  app.post('/createLesson' , lessonAction.createLesson);
+ app.post('/createKeyWord' , keyWordAction.createKeyWord);
  app.get('/', function (req, res) { 
      res.status(200).json({message:"InteractiveLesson App is running!"}); 
  }); // ------------> connect to login html
