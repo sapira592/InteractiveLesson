@@ -29,3 +29,5 @@ db.on('disconnected', function() {
 db.on('reconnected', function () {
 	console.info('Mongoose reconnected!');
 });
+
+exports.con = mongoose;

@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var db = require('./mongoConnection');
 var app = express();
@@ -12,16 +13,18 @@ app.use(function(req, res, next){
 	res.set("Content-Type", "Application/json");
 	next();
 });
-
+app.use(bodyParser.urlencoded({extended:false}));
 
 //=================== Controllers =======================
-
+// var tc = require('./controllers/teacherController.js');
+// var teacherAction = new tc(db.con);
 var teacherAction = require('./controllers/teacherController.js');
+var lessonAction = require('./controllers/lessonController.js');
 
 //=======================================================
 
  app.get('/teacherLogin/:id/:pass', teacherAction.login);
-
+ app.post('/createLesson' , lessonAction.createLesson);
  app.get('/', function (req, res) { 
      res.status(200).json({message:"InteractiveLesson App is running!"}); 
  }); // ------------> connect to login html

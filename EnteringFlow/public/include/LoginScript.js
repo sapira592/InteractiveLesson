@@ -9,14 +9,12 @@ angular.module('postExample', [])
                 encodeURIComponent(this.inputData.password);
                 
             $http({
-                method: 'POST',
-                url: 'include/check-login.php',
-                data: encodedString,
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                method: 'GET',
+                url: 'http://localhost:3000/teacherLogin/'+this.inputData.username + '/' + this.inputData.password
             })
             .success(function(data, status, headers, config) {
                 console.log(data);
-                if ( data.trim() === 'correct') {
+                if ( data.success === true) {
                     window.location.href = 'main.html';
                 } else {
                     $scope.errorMsg = "Login is not correct";
