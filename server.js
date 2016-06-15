@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var db = require('./mongoConnection');
+var cors = require('cors');
 var app = express();
+app.use(corse());
 var port = process.env.PORT || 3000;
 
 app.set('port', port);
