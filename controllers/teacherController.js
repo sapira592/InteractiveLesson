@@ -21,7 +21,6 @@ exports.login =function(req, res){
 
         else{
             res.json({ success: true, message: 'User is logged in.' });
-            res.json(user);
             return;
         }
     });
