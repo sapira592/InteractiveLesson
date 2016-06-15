@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var db = require('./mongoConnection');
 var cors = require('cors');
 var app = express();
-app.use(corse());
+app.use(cors());
 var port = process.env.PORT || 3000;
 
 app.set('port', port);
