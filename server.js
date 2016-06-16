@@ -22,14 +22,12 @@ app.use(bodyParser.urlencoded({extended:false}));
 var teacherAction = require('./controllers/teacherController.js');
 var lessonAction = require('./controllers/lessonController.js');
 var keyWordAction = require('./controllers/keyWordController.js');
-var MultipleCoiceAction = require('./controllers/multipleController.js');
 
 //=======================================================
 
  app.get('/teacherLogin/:name/:pass', teacherAction.login);
  app.post('/createLesson' , lessonAction.createLesson);
  app.post('/createKeyWord' , keyWordAction.createKeyWord);
-  app.post('/createMultipleChoice' , MultipleCoiceAction.createMultipleChoice);
  app.get('/', function (req, res) { 
      res.status(200).json({message:"InteractiveLesson App is running!"}); 
  }); // ------------> connect to login html
