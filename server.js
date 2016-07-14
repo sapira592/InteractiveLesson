@@ -25,10 +25,14 @@ var teacherAction = require('./controllers/teacherController.js');
 var studentAction = require('./controllers/studentController.js');
 var lessonAction = require('./controllers/lessonController.js');
 var keyWordAction = require('./controllers/keyWordController.js');
+<<<<<<< HEAD
 var MultipleCoiceAction = require('./controllers/multipleController.js');
 var QuestionAction = require('./controllers/questionController.js');
+=======
+>>>>>>> origin/master
 
 
+<<<<<<< HEAD
 //===================== Lesson =========================
  app.get('/getAllLessons' , lessonAction.getAllLessons);//ok
  app.post('/createLesson' , lessonAction.createLesson);//ok
@@ -56,6 +60,11 @@ app.get('/getAllQuestions' , QuestionAction.getAllQuestions);//ok
 app.post('/addQuestion' , QuestionAction.addQuestion);//ok
 
 //======================= General ==========================
+=======
+ app.get('/teacherLogin/:name/:pass', teacherAction.login);
+ app.post('/createLesson' , lessonAction.createLesson);
+ app.post('/createKeyWord' , keyWordAction.createKeyWord);
+>>>>>>> origin/master
  app.get('/', function (req, res) { 
      res.status(200).json({message:"InteractiveLesson App is running!"}); 
  }); // ------------> connect to login html
