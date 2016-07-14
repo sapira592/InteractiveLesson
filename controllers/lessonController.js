@@ -1,15 +1,17 @@
 var mongoose = require('mongoose');
-var lesson = require('../schemas/lesson');
+var Lesson = require('../schemas/lesson'); // the model
 
 exports.createLesson =function(req, res){
     console.log(req.body);
     var lessonObject = {
+        id:req.body.id,
         subject: req.body.subject,
         grade: req.body.grade,
         lessonTitle: req.body.lessonTitle,
-        date: req.body.date
+        date: req.body.date,
+        presentationUrl:null
     }
-    lesson.create(lessonObject, function(err,data){
+    Lesson.create(lessonObject, function(err,data){
         if(err){
             console.log("error");
             res.json({success:false, message:err});
@@ -20,10 +22,21 @@ exports.createLesson =function(req, res){
     });
 }
 
-// var lessonSchema = new schema({
-//     id:{type: Number, index: 1, unique: true, required: true},
-//     subject: {type: String},
-//     grade: {type: Number, min:0, max:100 },
-//     lessonTitle: {type: String,required: true},
-//     date: {type: Date},
-// }, {collection: 'lessons'});
+exports.getAllLessons = function(req,res){
+    var query = Lesson.find({},{_id:0, __v:0}).
+    exec(function(err, docs){
+        console.log("docs:" + docs);
+        res.json(docs);
+        return;
+    });
+}
+
+exports.updateLesson = function(req, res){
+    console.log(req.body);
+    
+
+}
+
+
+
+   //select('subject grade lessonTitle date presentationUrl').

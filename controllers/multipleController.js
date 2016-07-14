@@ -1,18 +1,19 @@
 var mongoose = require('mongoose');
-var multipleChoice = require('../schemas/activity');
-var id = 100;
+var MultipleChoice = require('../schemas/multiple');
 
 exports.createMultipleChoice =function(req, res){
-    console.log(req.body);
     var MultipleChoiceObject = {
-        id: id,
         type: "multiple Choice",
-        lessonTitle: "Roma",
-        questions: req.body.Question
-        answers: [req.body.Answer1, req.body.Answer2, req.body.Answer3 ]
+        lessonID: "gfgfdgd344535", //will get by session
+        questions: req.body.Question,
+        answers: [
+            {answer:req.body.Answer1, correct:req.body.correct1},
+            {answer:req.body.Answer2, correct:req.body.correct2},
+            {answer:req.body.Answer3, correct:req.body.correct3},
+            {answer:req.body.Answer4, correct:req.body.correct4}
+        ]
     }
-    id++;
-    multipleChoice.create(MultipleChoiceObject, function(err,data){
+    MultipleChoice.create(MultipleChoiceObject, function(err,data){
         if(err){
             console.log("error");
             res.json({success:false, message:err});
@@ -20,5 +21,15 @@ exports.createMultipleChoice =function(req, res){
         }
         res.json({success:true, message:data});
             return;
+    });
+}
+
+
+exports.getAllMultipleChoices =function(req, res){
+    var query = MultipleChoice.find({lessonID:"gfgfdgd344535"},{_id:0, __v:0}).
+    exec(function(err, docs){
+        console.log("docs:" + docs);
+        res.json(docs);
+        return;
     });
 }

@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var keyWordSchema = new schema({
-    id:{type: Number, index: 1, unique: true, required: true},
-    title: {type: String, required: true},
-    info:{type: String, required: true},
-    lessonID:[{type: Number, unique: true, required: true}]
+    title: {type: String},
+    info:{type: String},
+    lessonID:[{type: String}],
 }, {collection: 'keyWords'});
 
 //validation with DB

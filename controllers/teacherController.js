@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Teacher = require('../schemas/teacher');
 
 exports.login =function(req, res){
-    console.log(req.params.name + ' ' + req.params.pass);
-       Teacher.findOne({name: req.params.name}, function(err,user){
+    console.log(req.body.id + ' ' + req.body.pass);
+       Teacher.findOne({id: req.body.id}, function(err,user){
         if(err){
             console.log("error: " + err);
             return 0;
@@ -14,7 +14,7 @@ exports.login =function(req, res){
             return 0;
         }
 
-       if(user.password != req.params.pass){
+       if(user.password != req.body.pass){
             res.json({ success: false, message: 'Login failed. User password incorrect.' });
             return 0;
         }

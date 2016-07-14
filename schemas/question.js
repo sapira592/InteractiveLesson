@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var questionSchema = new schema({
-    id:{type: Number, index: 1, unique: true, required: true},
+    stName:{type: String, required: true},
     question: {type: String, required: true},
-   	time: String,
-   	answerIDList: [Number]
+   	date: {type: Date},
+   	answerIDList: [String]
 }, {collection: 'questions'});
 
 //validation with DB
