@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var Question = require('../schemas/question');
+var globalFunctions = require('./globalFunctions');
 
 exports.addQuestion =function(req, res){
     var QuestionObject = {
         stName: "name", // will get by session
         question: req.body.Question, 
         date: null,
-        answerIDList: [],
+        answerIDList: []
     }
     Question.create(QuestionObject, function(err,doc){
         if(err){
@@ -14,7 +15,7 @@ exports.addQuestion =function(req, res){
             res.json({success:false, message:err});
             return;
         }       
-        updateDate(doc,doc._id.getTimestamp());
+        globalFunctions.updateDate(doc,doc._id.getTimestamp());
         res.json({success:true, message:doc.date});
         return;
     });
@@ -35,20 +36,6 @@ exports.getAllQuestions = function(req, res){
             console.log("Questions: " + docs);
             res.json(docs);
             return;
-           }
-    });
-}
-
-var updateDate = function(doc, date){
-	var query = doc.update({
-        $set: {date:date}
-    });
-	query.exec(function(err, res){
-		if(err){
-            console.log("error");
-            res.json({success:false, message:err});
-            return;
         }
-        console.log(JSON.stringify(res));
-	});
+    });
 }

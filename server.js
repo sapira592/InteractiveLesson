@@ -27,6 +27,7 @@ var lessonAction = require('./controllers/lessonController.js');
 var keyWordAction = require('./controllers/keyWordController.js');
 var MultipleCoiceAction = require('./controllers/multipleController.js');
 var QuestionAction = require('./controllers/questionController.js');
+var AnswerAction = require('./controllers/answerController.js');
 
 //===================== Lesson =========================
  app.get('/getAllLessons' , lessonAction.getAllLessons);//ok
@@ -49,6 +50,8 @@ var QuestionAction = require('./controllers/questionController.js');
  app.post('/createMultipleChoice' , MultipleCoiceAction.createMultipleChoice);//ok
 
 //==================== Answers =======================
+app.post('/getAllAnswers' , AnswerAction.getAllAnswers);//ok
+app.post('/addAnswer' , AnswerAction.addAnswer);//ok
 
 //==================== Questions =====================
 app.get('/getAllQuestions' , QuestionAction.getAllQuestions);//ok

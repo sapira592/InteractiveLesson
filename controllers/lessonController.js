@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var Lesson = require('../schemas/lesson'); // the model
+var Lesson = require('../schemas/lesson');
+var Teacher = require('../schemas/teacher');
 
 exports.createLesson =function(req, res){
     console.log(req.body);
@@ -17,6 +18,21 @@ exports.createLesson =function(req, res){
             res.json({success:false, message:err});
             return;
         }
+
+        Teacher.findOne({id:"12345909"}).
+        exec(function(err, doc){
+            if(err){
+                console.log("error: " + err);
+                return 0;
+             }                 
+             else{
+                if(doc.lessonList){
+                     doc.lessonList.push(data.id);
+                }
+                else doc.lessonList[0] = data.id;
+                doc.save();
+            }
+         }); 
         res.json({success:true, message:data});
             return;
     });
