@@ -1,6 +1,16 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var guid = require('guid');
+var multer = require ('multer');
+var upload = multer({ storage: multer.diskStorage({
+    destination: "./uploads",
+    filename: function(req,file,cb){
+        var dotIndex = file.originalname.lastIndexOf(".");
+        var ext = file.originalname.substring(dotIndex,file.originalname.length);
+        cb(null,guid.raw() + ext);
+    }
+}) });
 var expressSession = require('express-session');
 var mongoose = require('mongoose');
 var db = require('./mongoConnection');
@@ -10,6 +20,7 @@ var app = express();
 var port = process.env.PORT || 3000;
 var currentLesson;
 
+app.use("/images",express.static("./uploads"));
 app.set('port', port);
 app.use(function(req, res, next){
 	res.header("Access-Control-Allow-Origin", "*");
@@ -38,8 +49,7 @@ var AnswerAction = require('./controllers/answerController.js');
 //===================== Lesson =========================
  app.get('/getAllLessons' , lessonAction.getAllLessonsPerTeacher);//ok
  app.post('/createLesson' , lessonAction.createLesson);//ok
- app.post('/updateLesson' , lessonAction.updateLesson);
-
+ app.post('/updateLesson' ,upload.single("image"), lessonAction.updateLesson);
 //===================== Teacher ========================
  app.post('/teacherLogin', teacherAction.login);//ok
 
@@ -68,7 +78,6 @@ app.post('/addQuestion' , QuestionAction.addQuestion);//ok
  app.get('/', function (req, res) { 
      res.status(200).json({message:"InteractiveLesson App is running!"}); 
  }); // ------------> connect to login html
-
 app.listen(port);
 console.log("service is listening on port " + port);
 

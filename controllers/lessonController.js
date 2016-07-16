@@ -11,7 +11,7 @@ exports.createLesson =function(req, res){
         lessonTitle: req.body.lessonTitle,
         date: req.body.date,
         presentationUrl:null,
-        teacherID:null
+        teacherID:12345909
     }
     Lesson.create(lessonObject, function(err,data){
         if(err){
@@ -40,7 +40,7 @@ exports.createLesson =function(req, res){
 }
 
 exports.getAllLessonsPerTeacher = function(req,res){
-    var query = Lesson.find({teacherID:12345909},{_id:0, __v:0}).
+    var query = Lesson.find({teacherID:12345909},{}).
     exec(function(err, docs){
         console.log("docs:" + docs);
         res.json(docs);
@@ -50,7 +50,29 @@ exports.getAllLessonsPerTeacher = function(req,res){
 
 exports.updateLesson = function(req, res){
     console.log(req.body);
-    
+    console.log(req.file);
+    Lesson.findOne({id:req.body.id},function(err,data){
+        if(err){
+            console.log(err);
+            res.json({success:false,data:err});
+            return;
+        }
+        if(data == null) {
+            console.log("Lesson Not Found " + req.body.id);
+            res.json({success:false , data:"Lesson Not Found"});
+            return
+
+        }
+        data.presentationUrl = req.file.filename;
+        data.save(function(err){
+            if(err){
+                console.log(err);
+                res.json({success:false,data:err});
+            } else {
+                res.json({success:true});
+            }
+        })
+    });
 
 }
 
