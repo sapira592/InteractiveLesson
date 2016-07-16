@@ -33,3 +33,19 @@ exports.getAllMultipleChoices =function(req, res){
         return;
     });
 }
+
+
+exports.removeMultipleChoice =function(req, res){
+    var query = MultipleChoice.findOne({_id:"578a0ac728f37d4c1bb423fe"}).
+    exec(function(err, doc){
+        console.log("doc:" + doc);
+
+        var query = doc.remove(function(err, deletedDoc){
+            MultipleChoice.findOne({_id:"578a0ac728f37d4c1bb423fe"}).
+            exec(function(err, doc){
+            console.log("deleted doc:" + JSON.stringify(doc));
+        });
+    });
+    return;
+    });
+}

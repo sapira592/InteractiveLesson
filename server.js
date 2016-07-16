@@ -54,6 +54,7 @@ var AnswerAction = require('./controllers/answerController.js');
 //================= Multiple Choice ==================
  app.get('/getAllMultipleChoice' , MultipleCoiceAction.getAllMultipleChoices);//ok
  app.post('/createMultipleChoice' , MultipleCoiceAction.createMultipleChoice);//ok
+ app.post('/removeMultipleChoice' , MultipleCoiceAction.removeMultipleChoice);//ok
 
 //==================== Answers =======================
 app.post('/getAllAnswers' , AnswerAction.getAllAnswers);//ok
