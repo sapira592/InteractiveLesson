@@ -10,7 +10,8 @@ exports.createLesson =function(req, res){
         grade: req.body.grade,
         lessonTitle: req.body.lessonTitle,
         date: req.body.date,
-        presentationUrl:null
+        presentationUrl:null,
+        teacherID:null
     }
     Lesson.create(lessonObject, function(err,data){
         if(err){
@@ -38,8 +39,8 @@ exports.createLesson =function(req, res){
     });
 }
 
-exports.getAllLessons = function(req,res){
-    var query = Lesson.find({},{_id:0, __v:0}).
+exports.getAllLessonsPerTeacher = function(req,res){
+    var query = Lesson.find({teacherID:12345909},{_id:0, __v:0}).
     exec(function(err, docs){
         console.log("docs:" + docs);
         res.json(docs);

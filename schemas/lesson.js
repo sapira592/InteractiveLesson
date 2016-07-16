@@ -7,6 +7,7 @@ var lessonSchema = new schema({
     lessonTitle: {type: String},
     date: {type: Date},
     presentationUrl:{type: String},
+    teacherID:{type: Number},
 }, {collection: 'lessons'});
 
 //validation with DB

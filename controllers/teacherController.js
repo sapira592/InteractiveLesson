@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Teacher = require('../schemas/teacher');
 
 exports.login =function(req, res){
+
     console.log(req.body.id + ' ' + req.body.pass);
        Teacher.findOne({id: req.body.id}, function(err,user){
         if(err){
@@ -20,6 +21,7 @@ exports.login =function(req, res){
         }
 
         else{
+            //req.session.teacherID = req.body.id;
             res.json({ success: true, message: 'User is logged in.' });
             return;
         }

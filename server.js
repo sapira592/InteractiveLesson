@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
 var mongoose = require('mongoose');
 var db = require('./mongoConnection');
 var cors = require('cors');
@@ -16,8 +18,12 @@ app.use(function(req, res, next){
 	next();
 });
 app.use(bodyParser.json());//enable to return jsons
-app.use(bodyParser.urlencoded({extended:true}));
-//app.use(express.cookieParser());
+app.use(bodyParser.urlencoded({extended:false}));
+/*app.use(cookieParser());
+app.use(expressSession({secret: 'max', resave: false,
+						saveUninitialized: true,cookie: { secure: true }}));*/
+
+//only save the session if we change it.
 //app.use(express.session({secret: '1234567890QWERTY'}));
 
 //=================== Controllers =======================
@@ -30,7 +36,7 @@ var QuestionAction = require('./controllers/questionController.js');
 var AnswerAction = require('./controllers/answerController.js');
 
 //===================== Lesson =========================
- app.get('/getAllLessons' , lessonAction.getAllLessons);//ok
+ app.get('/getAllLessons' , lessonAction.getAllLessonsPerTeacher);//ok
  app.post('/createLesson' , lessonAction.createLesson);//ok
  app.post('/updateLesson' , lessonAction.updateLesson);
 

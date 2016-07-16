@@ -18,8 +18,11 @@
   "homepage": "https://github.com/sapira592/InteractiveLesson#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.3",
     "cors": "^2.7.1",
     "express": "^4.13.4",
+    "express-session": "^1.14.0",
+    "express-validator": "^2.20.8",
     "mongoose": "^4.4.19"
   }
 }
