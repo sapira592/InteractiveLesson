@@ -1,7 +1,7 @@
+
+##"Iteractive Lesson API"
 ---
-title: "Iteractive Lesson API"
 date: "17 ביולי 2016"
-output: html_document
 ---
 
 ```{r setup, include=FALSE}
