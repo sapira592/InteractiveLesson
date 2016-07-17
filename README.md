@@ -1,7 +1,7 @@
 
 ##Iteractive Lesson API
 ---
-####date: "17 ביולי 2016"
+####date: 17 ביולי 2016
 ---
 
 This is an application based on Node.js and Angular.js.
