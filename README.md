@@ -1,12 +1,8 @@
 
-##"Iteractive Lesson API"
+##Iteractive Lesson API
 ---
 date: "17 ביולי 2016"
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 This is an application based on Node.js and Angular.js.
 The goal of this app, is create an iteractive lesson between theacher and students during the lesson.
