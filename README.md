@@ -1,7 +1,7 @@
 
 Iteractive Lesson API
 ---
-date: 17 ביולי 2016
+Date: 17 ביולי 2016
 ---
 
 This is an application based on Node.js and Angular.js.
@@ -9,7 +9,7 @@ The goal of this app, is create an iteractive lesson between theacher and studen
 
 This Web Services provide all needed functionality to perform the above-mentioned goal.
 
-#How To Use?
+How To Use?
 
 ** http://interactive-lesson.herokuapp.com/ - general ruote to index page **
 
@@ -43,7 +43,7 @@ There are 7 main moduls:
    belong to: teacher app
 ```
 
-#####2.Teacher: 
+2.Teacher: 
 
    http://interactive-lesson.herokuapp.com/teacherLogin:
 ```http
@@ -53,7 +53,7 @@ There are 7 main moduls:
    belong to: teacher app
 ```
 
-#####3.Student: 
+3.Student: 
 
    http://interactive-lesson.herokuapp.com/studentLogin:
 ```http
@@ -71,7 +71,7 @@ There are 7 main moduls:
    belong to: teacher & student app
 ```
 
-#####4.KeyWords:
+4.KeyWords:
 
    http://interactive-lesson.herokuapp.com/getAllKeyWords:
 ```http
@@ -89,7 +89,7 @@ There are 7 main moduls:
    belong to: teacher app 
 ```
 
-#####5.Multiple Choice: 
+5.Multiple Choice: 
 
    http://interactive-lesson.herokuapp.com/getAllMultipleChoice:
 ```http
@@ -116,7 +116,7 @@ There are 7 main moduls:
    belong to: teacher app
 ```
 
-#####6.Answers: 
+6.Answers: 
 
    http://interactive-lesson.herokuapp.com/getAllAnswers:
 ```http
@@ -134,7 +134,7 @@ There are 7 main moduls:
    belong to: teacher & student app 
 ```
 
-#####7.Questions: 
+7.Questions: 
 
    http://interactive-lesson.herokuapp.com/getAllQuestions:
 ```http
@@ -154,4 +154,4 @@ There are 7 main moduls:
 
 
 ************************************************************
-###Copyright (c) Sapir Abargil, Niv Levi
+Copyright (c) Sapir Abargil, Niv Levi
