@@ -11,11 +11,11 @@ This Web Services provide all needed functionality to perform the above-mentione
 
 How To Use?
 
-** http://interactive-lesson.herokuapp.com/ - general ruote to index page **
+http://interactive-lesson.herokuapp.com/ - general ruote to index page
 
 There are 7 main moduls:
 
-#####1.Lesson:
+1.Lesson:
 
    http://interactive-lesson.herokuapp.com/getAllLessons:
 ```http
