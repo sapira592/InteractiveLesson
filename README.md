@@ -4,14 +4,14 @@ Iteractive Lesson API
 Date: 17 ביולי 2016
 ---
 
-This is an application based on Node.js and Angular.js.
-The goal of this app, is create an iteractive lesson between theacher and students during the lesson.
+The application is based on Node.js and Angular.js.
+The app's goal is to create an iteractive lesson between theacher and students during the lesson.
 
-This Web Services provide all needed functionality to perform the above-mentioned goal.
+This Web Services provide all needed functionality for performing the above mentioned goal.
 
 How To Use?
 
-http://interactive-lesson.herokuapp.com/ - general ruote to index page
+http://interactive-lesson.herokuapp.com/ - general route to the index page
 
 There are 7 main moduls:
 
