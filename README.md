@@ -1,7 +1,7 @@
 
 Iteractive Lesson API
 ---
-17th of July 2016
+July 17, 2016
 ---
 
 The application is based on Node.js and Angular.js.
